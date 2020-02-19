@@ -1,15 +1,23 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import './styles.scss';
 import Home from '../../pages/Home/Home';
+import Preloader from '../Preloader/Preloader';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Layout = ({dispatch}) => {
-  dispatch({type: 'SEARCH_REPOS', payload: {searchText: 'test'}})
+const Layout = ({preloader}) => {
   return (
-    <Home/>
+    <main>
+      {preloader && <Preloader />}
+      <Home/>
+    </main>
   )
 }
 
-export default connect(
-
-)(Layout)
+const mapStateToProps = (state) => ({
+  preloader: state.reposList.preloader,
+})
+Layout.propTypes = {
+  preloader: PropTypes.bool
+};
+export default connect(mapStateToProps, null)(Layout)

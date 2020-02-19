@@ -1,0 +1,20 @@
+@import '../../assets/scss/_variables';
+
+.home-page {
+  display: flex;
+  align-items: center;
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
+    font-size: 22px;
+    color: $header-color;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+}
